@@ -80,6 +80,11 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+print("about to look for db vars")
+
+for name, value in os.environ.items():
+    print("{0}: {1}".format(name, value))
+
 if os.getenv("DEVELOPMENT_MODE", "False") == "True":
     DATABASES = {
         "default": {
